@@ -18,12 +18,11 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     # image_byte = uploaded_file.getvalue()
     st.image(image, caption='Uploaded Image.', use_column_width=True)
+    st.spinner("Loading model")
     model = ImageClassifier(model_name)
+    st.spinner("Predict...")
     prediction = model.get_prediction(image=image)
-    data = {"prediction": prediction}
-    st.write("")
-    st.write("Just a second...")
-    st.write(prediction)
+    st.success(f"The result is: {prediction}")
 
     # print out the top 5 prediction labels with scores
     # for i in labels:
