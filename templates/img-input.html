@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Test
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <form action="{{ url_for('input_image') }}" method="post" enctype="multipart/form-data">
+        <h1>Upload your Image</h1>
+        <!-- <label for="file" class="custom-uploader">Upload Your File</label> -->
+        <input id="file" type="file" name="file" accept="image/*"><br>
+        <button type="submit" name="submit" class="btn btn-success" value="Upload File">
+            Upload File
+        </button>
+
+    </form>
+    <!-- <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <p><img id="output" width="200" /></p>
+    <input type="submit" value="Submit" />
+
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script> -->
+</div>
+{% endblock %}
